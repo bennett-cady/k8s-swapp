@@ -10,3 +10,5 @@
 2. ## Connect to the EC2 and install the necesssary tools
 3. ## Configure the cluster
 4. ## Install the ingresses
+
+  
