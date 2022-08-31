@@ -1,4 +1,4 @@
-1.  *Create an EC2 instance using AWS's website*
+1.  _Create an EC2 instance using AWS's website_
     1. Go to AWS’s website. In the search bar, search for EC2, click on Launch Instance
     2. Fill out the form with the following information:
         * AMI-Amazon Linux 2, Storage: 100 Gi
