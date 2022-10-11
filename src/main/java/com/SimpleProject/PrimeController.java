@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import AbstractDataTypes.LinkedList;
+
 
 @RestController
 @RequestMapping("/primes")
@@ -21,6 +23,14 @@ public class PrimeController {
 		return ResponseEntity.status(200).body(nStr+" is not prime");
 	}
 	
+	@GetMapping("/firstNPrimes/{n}")
+	public ResponseEntity<String> firstN(@PathVariable("n") int n)
+	{
+		String result="The first "+String.valueOf(n)+" prime numbers: "+"\n";
+		LinkedList ll = PrimeService.firstNPrimes(n);
+		result+=ll.printList(ll);
+		return ResponseEntity.status(200).body(result);
+	}
 	
 	
 }

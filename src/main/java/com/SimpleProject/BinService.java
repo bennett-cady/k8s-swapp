@@ -48,7 +48,7 @@ public class BinService {
 			System.out.println(binToInt(e));
 		}
 		
-		
+		System.out.println(intToBin(3));
 	}
 	
 }

@@ -3,6 +3,8 @@ package com.SimpleProject;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import AbstractDataTypes.LinkedList;
+
 public class PrimeService {
 
 	public static boolean isPrime(int n) 
@@ -28,15 +30,14 @@ public class PrimeService {
 		return n;
 	}
 	
-	public static String firstNPrimes(int n) 
+	public static LinkedList firstNPrimes(int n) 
 	{
-		int curr=2; String primes="";
+		int curr=2; 
+		LinkedList primes = new LinkedList();
 		for(int i=0; i<n; i++) 
 		{
-			if(i!=n-1) 
-			{
-				primes+=String.valueOf(curr)+" ";
-			} else {primes+=String.valueOf(curr);}
+			
+			primes.add(primes, String.valueOf(curr));
 			curr=nextPrime(curr);
 		}
 		return primes;
