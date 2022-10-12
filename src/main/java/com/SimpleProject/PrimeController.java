@@ -23,6 +23,11 @@ public class PrimeController {
 		return ResponseEntity.status(200).body(nStr+" is not prime");
 	}
 	
+	@GetMapping("/nextPrime/{n}")
+	public ResponseEntity<String> nextP(@PathVariable("n") int n){
+		return ResponseEntity.status(200).body(String.valueOf(PrimeService.nextPrime(n)));
+	}
+	
 	@GetMapping("/firstNPrimes/{n}")
 	public ResponseEntity<String> firstN(@PathVariable("n") int n)
 	{
@@ -32,5 +37,20 @@ public class PrimeController {
 		return ResponseEntity.status(200).body(result);
 	}
 	
+	@GetMapping("/isGen/{p}/{g}")
+	public ResponseEntity<String> generates(@PathVariable("p") int prime, @PathVariable("g") int gen ){
+		String pStr = String.valueOf(prime);
+		String gStr = String.valueOf(gen);
+		if( PrimeService.isGenerator(prime, gen)!=true) {
+			return ResponseEntity.status(200).body(gStr + " is NOT a generator for "+pStr);
+		}
+		return ResponseEntity.status(200).body(gStr + " IS a generator for "+pStr);
+	}
+	
+	@GetMapping("/getGens/{p}")
+	public ResponseEntity<String> getGens(@PathVariable("p") int prime){
+		LinkedList gens = PrimeService.getGenerators(prime);
+		return ResponseEntity.ok().body("Generators for "+String.valueOf(prime)+": "+gens.printList(gens));
+	}
 	
 }

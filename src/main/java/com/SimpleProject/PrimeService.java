@@ -50,7 +50,8 @@ public class PrimeService {
 		}
 		ArrayList<Integer> arr = new ArrayList<Integer>(); 
 		int base = g;
-		for( int i=0; i<p-1; i++ ) {
+		for( int i=0; i<p-1; i++ ) 
+		{
 			arr.add(g); g= (g*base)%p;
 		}
 		Collections.sort(arr);
@@ -63,25 +64,19 @@ public class PrimeService {
 		return true;
 	}
 	
-	public static ArrayList<Integer> getGenerators(int p) 
+	public static LinkedList getGenerators(int p) 
 	{
-		ArrayList<Integer> gens = new ArrayList<Integer>();
+		LinkedList gens = new LinkedList();
 		if(!isPrime(p)) {
 			return gens;
 		}
 		for(int i=2; i<p; i++) 
 		{
 			if(isGenerator(p, i)) {
-				gens.add(i);
+				gens.add(gens, String.valueOf(i));
 			}
 		}
-		return gens;
-		
-	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		return gens;	
 	}
 
 }
