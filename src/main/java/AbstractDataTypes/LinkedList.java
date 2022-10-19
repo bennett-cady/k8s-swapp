@@ -11,6 +11,8 @@ public class LinkedList
 		String strData;
 		Node next;
 		
+		Node(){}
+		
 		Node(String s){
 			strData = s;
 			next = null;
@@ -36,6 +38,9 @@ public class LinkedList
 	}
 	
 	public String printList(LinkedList arr) {
+		if(arr.size==0) {
+			return "";
+		}
 		String items = ""; 
 		Node current = arr.head;
 		while(current.next!=null) {
@@ -95,9 +100,17 @@ public class LinkedList
 	public void delete(LinkedList arr, int idx) 
 	{
 		if(arr.size()==0) {return;}
+		if(arr.size==1) {
+			arr.head = null;
+			size=0;
+			return;
+		}
 		if(idx<=0) {
 			arr.head=arr.head.next; size--;
 			return;
+		}
+		if(idx>=arr.size) {
+			idx=arr.size -1;
 		}
 		int ci=0; 
 		Node prev=null; 
@@ -120,34 +133,80 @@ public class LinkedList
 		prev.next=next; 
 		size--;
 	}
-/*
-	
+
+/*	
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
-		ll.add(ll, "apple");
-		ll.add(ll, "mango");
-		ll.add(ll, "peach");
-		ll.add(ll, "orange");
-		ll.add(ll, "kiwi");
-		System.out.println(ll.printList(ll)); System.out.println("");
-		// apple, mango, peach, orange, kiwi
+		ll.add(ll, "3");
+		ll.add(ll, "8");
+		ll.add(ll, "7");
+		ll.add(ll, "5");
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		// 3, 8, 7, 5 : 4
 		
-		ll.insert(ll, "squash", 0);
-		ll.insert(ll, "carrot", 20);
-		ll.insert(ll, "melon", 2);
-		System.out.println(ll.printList(ll)); System.out.println("");
-		// squash, apple, melon, mango, peach, orange, kiwi, carrot
-		System.out.println(ll.size());
-		// 8
+		ll.insert(ll, "10", 0);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.insert(ll, "22", 22);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.insert(ll, "4", -8);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.insert(ll, "0", 2);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.insert(ll, "17", 4);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
 		
 		ll.delete(ll, 0);
-		ll.delete(ll, 4);
-		ll.delete(ll, 2);
-		System.out.println(ll.printList(ll)); System.out.println("");
-		// apple, melon, peach, kiwi, carrot
-		System.out.println(ll.size());
-		// 5
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
 		
+		ll.delete(ll, 33);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.delete(ll, 7);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.delete(ll, 5);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.delete(ll, 2);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.delete(ll, -5);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.delete(ll, 1);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.delete(ll, 2);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.delete(ll, 2);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.delete(ll, 0);
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.add(ll, "9");
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.add(ll, "6");
+		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		
+		ll.insert(ll, "11", 0);
+		System.out.println(ll.printList(ll));
+		
+		ll.insert(ll, "3", 9);
+		System.out.println(ll.printList(ll));
+		
+		ll.insert(ll, "99", -7);
+		System.out.println(ll.printList(ll));
+		
+		ll.insert(ll, "101", 3);
+		System.out.println(ll.printList(ll));
 	}
 */
+	
 }
