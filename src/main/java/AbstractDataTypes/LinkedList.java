@@ -23,12 +23,12 @@ public class LinkedList
 		return size;
 	}
 	
-	public void add(LinkedList arr, String str) {
+	public void add(String str) {
 		Node node = new Node(str);
-		if(arr.head==null) {
-			arr.head = node;
+		if(this.head==null) {
+			this.head = node;
 		} else {
-			Node current = arr.head;
+			Node current = this.head;
 			while(current.next!=null) {
 				current=current.next;
 			}
@@ -37,12 +37,12 @@ public class LinkedList
 		size++;
 	}
 	
-	public String printList(LinkedList arr) {
-		if(arr.size==0) {
+	public String printList() {
+		if(size==0) {
 			return "";
 		}
 		String items = ""; 
-		Node current = arr.head;
+		Node current = this.head;
 		while(current.next!=null) {
 			items += current.strData+ ", "; 
 			current=current.next;
@@ -51,18 +51,23 @@ public class LinkedList
 		return items;
 	}
 	
-	public Node get(LinkedList arr, int idx) {
-		if (idx>=arr.size()) { idx=arr.size()-1; } else if (idx<0) { idx =0; }
-		Node current = arr.head; int ci=0;
+	public String get(int idx) {
+		if (idx>=this.size) { 
+			idx=this.size-1; 
+		} else if (idx<0) { 
+			idx =0; 
+		}
+		Node current = this.head; int ci=0;
 		while(ci<idx) {
 			current=current.next; ci++;
 		}
-		return current;
+		return current.strData;
 	}
 	
-	public boolean contains(LinkedList arr, String item) {
-		Node current = arr.head; int idx=0;
-		while(idx<arr.size()) {
+	public boolean contains(String item) {
+		Node current = this.head; 
+		int idx=0;
+		while(idx<this.size()) {
 			if(current.strData.equals(item)) {
 				return true;
 			}
@@ -71,18 +76,20 @@ public class LinkedList
 		return false;
 	}
 	
-	public void insert(LinkedList arr, String str, int idx) 
+	public void insert(String str, int idx) 
 	{
-		if( idx>=arr.size() || arr.size()==0 ) {
-			arr.add(arr, str); return;
+		if( idx>=this.size || this.size==0 ) {
+			this.add(str); 
+			return;
 		}
 		Node newNode = new Node(str);
 		if(idx<=0)  {
-			newNode.next=arr.head; arr.head=newNode; 
-			size++; return;
+			newNode.next=this.head; this.head=newNode; 
+			size++; 
+			return;
 		}
 		int ci=0; 
-		Node current = arr.head; 
+		Node current = this.head; 
 		Node prevNode = null;
 		while(ci<idx) 
 		{
@@ -97,30 +104,30 @@ public class LinkedList
 		size++;
 	}
 	
-	public void delete(LinkedList arr, int idx) 
+	public void delete(int idx) 
 	{
-		if(arr.size()==0) {return;}
-		if(arr.size==1) {
-			arr.head = null;
+		if(this.size==0) {return;}
+		if(this.size==1) {
+			this.head = null;
 			size=0;
 			return;
 		}
 		if(idx<=0) {
-			arr.head=arr.head.next; size--;
+			this.head=this.head.next; size--;
 			return;
 		}
-		if(idx>=arr.size) {
-			idx=arr.size -1;
+		if(idx>=this.size) {
+			idx=this.size -1;
 		}
 		int ci=0; 
 		Node prev=null; 
-		Node current=arr.head;
+		Node current=this.head;
 		while(ci<=idx) 
 		{
 			if(ci==idx-1) 
 			{
 				prev=current;
-				if(idx>=arr.size()-1) 
+				if(idx>=this.size()-1) 
 				{
 					prev.next = null; 
 					size--; 
@@ -134,28 +141,37 @@ public class LinkedList
 		size--;
 	}
 
-/*	
+
 	public static void main(String[] args) {
+		
 		LinkedList ll = new LinkedList();
-		ll.add(ll, "3");
-		ll.add(ll, "8");
-		ll.add(ll, "7");
-		ll.add(ll, "5");
-		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		ll.add("3");
+		ll.add("8");
+		ll.add("7");
+		ll.add("5");
+		System.out.println(ll.printList()); System.out.println(ll.size());
 		// 3, 8, 7, 5 : 4
 		
-		ll.insert(ll, "10", 0);
-		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		ll.insert("10", 0);
+		System.out.println(ll.printList()); System.out.println(ll.size());
+		// 10, 3, 8, 7, 5, 4
+		 
 		
-		ll.insert(ll, "22", 22);
-		System.out.println(ll.printList(ll)); System.out.println(ll.size());
 		
-		ll.insert(ll, "4", -8);
-		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		ll.insert("22", 22);
+		System.out.println(ll.printList()); System.out.println(ll.size());
+		//10, 3, 8, 7, 5, 22
 		
-		ll.insert(ll, "0", 2);
-		System.out.println(ll.printList(ll)); System.out.println(ll.size());
+		ll.insert("4", -8);
+		System.out.println(ll.printList()); System.out.println(ll.size());
+		// 4, 10, 3, 8, 7, 5, 22
 		
+		
+		ll.insert("0", 2);
+		System.out.println(ll.printList()); System.out.println(ll.size());
+		// 4, 10, 0, 3, 8, 7, 5, 22
+		
+		/*
 		ll.insert(ll, "17", 4);
 		System.out.println(ll.printList(ll)); System.out.println(ll.size());
 		
@@ -206,7 +222,8 @@ public class LinkedList
 		
 		ll.insert(ll, "101", 3);
 		System.out.println(ll.printList(ll));
+		*/
 	}
-*/
+
 	
 }

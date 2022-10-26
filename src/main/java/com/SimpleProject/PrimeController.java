@@ -33,7 +33,7 @@ public class PrimeController {
 	{
 		String result="The first "+String.valueOf(n)+" prime numbers: "+"\n";
 		LinkedList ll = PrimeService.firstNPrimes(n);
-		result+=ll.printList(ll);
+		result+=ll.printList();
 		return ResponseEntity.status(200).body(result);
 	}
 	
@@ -50,7 +50,7 @@ public class PrimeController {
 	@GetMapping("/getGens/{p}")
 	public ResponseEntity<String> getGens(@PathVariable("p") int prime){
 		LinkedList gens = PrimeService.getGenerators(prime);
-		return ResponseEntity.ok().body("Generators for "+String.valueOf(prime)+": "+gens.printList(gens));
+		return ResponseEntity.ok().body("Generators for "+String.valueOf(prime)+": "+gens.printList());
 	}
 	
 }

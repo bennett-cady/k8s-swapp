@@ -37,7 +37,7 @@ public class PrimeService {
 		for(int i=0; i<n; i++) 
 		{
 			
-			primes.add(primes, String.valueOf(curr));
+			primes.add(String.valueOf(curr));
 			curr=nextPrime(curr);
 		}
 		return primes;
@@ -73,7 +73,7 @@ public class PrimeService {
 		for(int i=2; i<p; i++) 
 		{
 			if(isGenerator(p, i)) {
-				gens.add(gens, String.valueOf(i));
+				gens.add(String.valueOf(i));
 			}
 		}
 		return gens;	
