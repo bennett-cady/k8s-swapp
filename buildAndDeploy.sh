@@ -1,12 +1,10 @@
 #!/bin/bash
 
-image = benjcady14/number-ops002
-
 mvn clean package
 
-docker build -t $image .
+docker build -t benjcady14/number-ops002 .
 
-docker push $image
+docker push benjcady14/number-ops002
 
 # if the application is deployed in a kubernetes cluster
 # kubectl apply -f kubernetes/deployment.yaml
