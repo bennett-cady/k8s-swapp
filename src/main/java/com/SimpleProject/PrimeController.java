@@ -53,4 +53,9 @@ public class PrimeController {
 		return ResponseEntity.ok().body("Generators for "+String.valueOf(prime)+": "+gens.printList());
 	}
 	
+	@GetMapping("/testRoute")
+	public ResponseEntity<String> getGens(){
+		return ResponseEntity.ok().body("You have successfully reached the test route!");
+	}
+	
 }
