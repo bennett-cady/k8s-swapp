@@ -10,3 +10,14 @@ This simple project demonstrates usage of OOP with Java, creating web applicatio
 * Unit testing for the project can be found under src/main/test
 * Dockerfile lists the steps used to build the docker image
 * The folder titled 'kubernetes' contains the manifests (.yaml files) used to deploy this application in a kubernetes cluster
+
+## How to use
+* This application can be found on dockerhub under the name 'benjcady14/number-ops002'
+    * Steps below require docker account and docker desktop installed:
+        * Run the command '_docker pull benjcady14/number-ops002_'
+        * Verify images was pulled: run '_docker images_', the image should be listed
+        * Run
+            '_docker run -d --name number-ops002 -p 127.0.0.1:8080:8080 benjcady14/number-ops002_'
+        * This runs the image on your local machine. You can now send requests to 127.0.0.1:8080/{routes here}
+## Routes        
+
