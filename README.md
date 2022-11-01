@@ -20,4 +20,21 @@ This simple project demonstrates usage of OOP with Java, creating web applicatio
             '_docker run -d --name number-ops002 -p 127.0.0.1:8080:8080 benjcady14/number-ops002_'
         * This runs the image on your local machine. You can now send requests to 127.0.0.1:8080/{routes here}
 ## Routes        
+* Once yourimage is running, you can send requests to 127.0.0.1:8080/
+    * /primes/ - a set of routes that deal with primes numbers and their properties
+        * /testRoute - prints "You have successfully reached the test route!". Used to verify the container is running
+        * /isPrime/n -  enter a number in place of 'n'. The http response body will tell you whether or not that number is prime
+        * /nextPrime/n - prints the first prime number that comes after n
+            * /nextPrime/2 -> 3
+            * /nextPrime/13 -> 17
+        * /firstNPrimes/n - prints a list of the first n prime numbers
+            * /firstNPrimes/5 - > 2, 3, 5, 7, 11
+    * /binary/ - converts integer to binary, and binary to integer, then posts the result in the body of the response
+        * /toBinary/n - converts n to binary
+            * /toBinary/6 - 110
+        * /toInteger/bin - converts the binary string "bin" to an integer
+            * /toInteger/4 - 100
+    
+    
+        
 
