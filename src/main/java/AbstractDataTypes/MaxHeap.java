@@ -58,6 +58,20 @@ public class MaxHeap
 			}
 		}
 	}
+	
+	public void percDown(int idx) 
+	{
+		
+	}
+	
+	public void deleteRoot() 
+	{
+		int temp = mheap[0];
+		mheap[0]=mheap[this.size-1];
+		mheap[this.size-1] = null;
+		this.size--;
+		this.percDown(0);
+	}
 
 	
 	public String printHeap() {

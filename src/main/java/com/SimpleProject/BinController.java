@@ -5,12 +5,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
-
 @RestController
 @RequestMapping("/binary")
-public class BinController {
+public class BinController 
+{
 	
 	@GetMapping("/toBinary/{n}")
 	public ResponseEntity<String> toBinary(@PathVariable("n") int n)

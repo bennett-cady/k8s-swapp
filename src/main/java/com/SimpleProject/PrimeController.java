@@ -22,6 +22,21 @@ public class PrimeController {
 		return ResponseEntity.status(200).body(nStr+" is not prime");
 	}
 	
+	@GetMapping("/firstNPrimes/{n}")
+	public ResponseEntity<String> firstNPrimes(@PathVariable("n") int n)
+	{
+		if(n<=0) {
+			n=0;
+		}
+		return ResponseEntity.status(200).body(String.valueOf(PrimeService.firstNPrimes(n)));
+	}
 	
-	
+	@GetMapping("/nextPrime/{n}")
+	public ResponseEntity<String> Next(@PathVariable("n") int n)
+	{
+		if(n<=1) {
+			n=2;
+		}
+		return ResponseEntity.status(200).body(String.valueOf(PrimeService.nextPrime(n)));
+	}
 }
