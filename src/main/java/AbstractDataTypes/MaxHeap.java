@@ -68,7 +68,7 @@ public class MaxHeap
 	{
 		int temp = mheap[0];
 		mheap[0]=mheap[this.size-1];
-		mheap[this.size-1] = null;
+		mheap[this.size-1] =0;
 		this.size--;
 		this.percDown(0);
 	}
