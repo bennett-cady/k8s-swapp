@@ -34,6 +34,7 @@ This simple project demonstrates usage of OOP with Java, creating web applicatio
             * /toBinary/6 - 110
         * /toInteger/bin - converts the binary string "bin" to an integer
             * /toInteger/4 - 100
+   * Sample requests using postman [here](https://github.com/bennett-cady/k8s-swapp/issues/1)
     
     
         
