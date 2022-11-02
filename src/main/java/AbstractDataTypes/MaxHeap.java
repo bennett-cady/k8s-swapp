@@ -61,20 +61,59 @@ public class MaxHeap
 	
 	public void percDown(int idx) 
 	{
-		
+		if(this.size<=1 || idx > (this.size/2 - 1) ) {
+			return;
+		}
+		while(idx<= this.size/2-1) {
+			if( this.size%2==0 && idx==this.size/2 - 1) { //only has left child
+				int leftChild = mheap[2*idx + 1];
+				if(mheap[idx]>=leftChild) {
+					return;
+				}
+			//int temp = leftChild;
+				mheap[2*idx+1]=mheap[idx];
+				mheap[idx]=leftChild;
+				idx=2*idx+1;
+			} else {
+				if( mheap[idx]>=mheap[2*idx+1] && mheap[idx]>=mheap[2*idx+2] ) { 
+					//in correct position
+					return;
+				} else {
+					// needs to be swapped
+					if( mheap[2*idx+1] >= mheap[2*idx+2 ] ) {
+						int temp = mheap[2*idx+1];
+						mheap[2*idx+1]=mheap[idx];
+						mheap[idx]=temp;
+						idx=2*idx+1;
+					} else {
+						int temp = mheap[2*idx+2];
+						mheap[2*idx+2]=mheap[idx];
+						mheap[idx]=temp;
+						idx=2*idx+2;
+					}
+				}
+			}
+		}
 	}
 	
 	public void deleteRoot() 
 	{
-		int temp = mheap[0];
+		if(this.size==1 || this.size==0) {
+			mheap[0]=0;
+			this.size=0;
+			return;
+		}
 		mheap[0]=mheap[this.size-1];
-		mheap[this.size-1] =0;
+		mheap[this.size-1] = 0;
 		this.size--;
 		this.percDown(0);
 	}
 
 	
 	public String printHeap() {
+		if(this.size==0) {
+			return "";
+		}
 		String all="";
 		for(int i=0; i<this.size-1; i++) {
 			all+=String.valueOf(mheap[i])+", ";
@@ -82,6 +121,19 @@ public class MaxHeap
 		all+=String.valueOf(mheap[this.size-1]);
 		return all;
 	}
+	
+	/*
+	public void heapify(int[] arr) {
+		this.size = arr.length;
+		int parent = arr.length/2 -1;
+		while(parent>=0) {
+			this.percDown(parent);
+			parent--;
+		}
+	}
+	// requires working percDown method
+	*/
+	
 	
 	public static void main(String[] args) {
 		MaxHeap test = new MaxHeap(90);
@@ -103,18 +155,37 @@ public class MaxHeap
 		
 		test.push(981);
 		 
-		test.push(232);
-		 
-		test.push(4);
-		 
-		test.push(800);
-		 
-		test.push(92);
 		
-		test.push(261);
-		
-		test.push(191);
 		System.out.println(test.printHeap());
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		
+		test.deleteRoot();
+		System.out.println(test.printHeap());
+		
 	}
 
 }
