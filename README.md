@@ -36,6 +36,12 @@ This simple project demonstrates usage of OOP with Java, creating web applicatio
             * /toInteger/4 - 100
    * Sample requests using postman can be found [here](https://github.com/bennett-cady/k8s-swapp/issues/1)
     
-    
+  
+  
+  ## To-do:
+  * add exceptions to Controller and Service methods
+  * add routes that accept/return json-serialized objects
+  * add rotues that call other APIs
+  * create kubernetes cluster and use it to deploy the application
         
 
