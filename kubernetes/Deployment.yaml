@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Deployment
 metadata:
   name: k8s-swapp
-  namespace: webAppDemo
+  namespace: web-app-demo
   labels:
     app: simpleWebApp
 spec:
