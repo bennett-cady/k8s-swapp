@@ -17,7 +17,7 @@ This simple project demonstrates usage of OOP with Java, creating web applicatio
         * Run the command '_docker pull benjcady14/mixed_demo:0.0.1_'
         * Verify images was pulled: run '_docker images_', the image should be listed
         * Run
-            '_docker run -d --name mixed_demo -p 127.0.0.1:8080:8080 benjcady14/mixed_demo:0.0.1_'
+            '_docker run -d --name [ enter container name here ] -p 127.0.0.1:8080:8080 benjcady14/mixed_demo:0.0.1_'
         * This runs the image on your local machine. You can now send requests to 127.0.0.1:8080/{routes here}
 ## Routes        
 * Once yourimage is running, you can send requests to 127.0.0.1:8080/
