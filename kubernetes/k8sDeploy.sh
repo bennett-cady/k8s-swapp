@@ -2,12 +2,13 @@
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
 
-kubectl create namespace webAppDemo
+## If namespace does not exist already
+# kubectl create namespace web-app-demo
 
-kubectl apply -f Ingress.yaml
+kubectl apply -f Ingress.yaml -n web-app-demo
 
-kubectl apply -f Service.yaml
+kubectl apply -f Service.yaml -n web-app-demo
 
-kubectl apply -f Deployment.yaml
+kubectl apply -f Deployment.yaml -n web-app-demo
 
-kubectl get po -n webAppDemo -w 
+kubectl get po -n web-app-demo -w 
