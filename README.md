@@ -12,12 +12,12 @@ This simple project demonstrates usage of OOP with Java, creating web applicatio
 * The folder titled 'kubernetes' contains the manifests (.yaml files) used to deploy this application in a kubernetes cluster
 
 ## How to use
-* This application can be found on dockerhub under the name 'benjcady14/number-ops002'
+* This application can be found on dockerhub under the name 'benjcady14/mixed_demo:0.0.1'
     * Steps below require docker account and docker desktop installed:
-        * Run the command '_docker pull benjcady14/number-ops002_'
+        * Run the command '_docker pull benjcady14/mixed_demo:0.0.1_'
         * Verify images was pulled: run '_docker images_', the image should be listed
         * Run
-            '_docker run -d --name number-ops002 -p 127.0.0.1:8080:8080 benjcady14/number-ops002_'
+            '_docker run -d --name mixed_demo -p 127.0.0.1:8080:8080 benjcady14/mixed_demo:0.0.1_'
         * This runs the image on your local machine. You can now send requests to 127.0.0.1:8080/{routes here}
 ## Routes        
 * Once yourimage is running, you can send requests to 127.0.0.1:8080/

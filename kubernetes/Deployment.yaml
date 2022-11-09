@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Deployment
 metadata:
   name: k8s-swapp
-  namespace: webAppDemo
+  namespace: web-app-demo
   labels:
     app: simpleWebApp
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: webApp
-        image: benjcady14/number-ops002
+        image: benjcady14/mixed_demo:0.0.1
         ports:
         - containerPort: 24224
         imagePullPolicy: always
