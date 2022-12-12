@@ -20,51 +20,7 @@ public class SudokuValidator
 		return true;
 	}
 	
-	public static int[] extractColumn(int[][] board, int col) 
-	{
-		int[] column=new int[9];
-		int idx=0;
-		try {
-			for(int[] row: board) {
-				column[idx]=row[col]; 
-				idx++;
-			}
-		} catch(Exception e) {
-			System.out.println(e);
-		}
-		return column;
-	}
 	
-	public static int[] extractBox(int[][] board, int box) 
-	{
-		int[] boxArr=new int[9];
-		int idx=0;
-		int column = -1;
-		if( box%3 == 0 ) {
-			column=0;
-		} else if(box%3 == 1) {
-			column=3;
-		} else {
-			column=6;
-		} // int column = 3*(box%3);
-		int originalC=column;
-		try {
-			int row = box;
-			while( row%3 != 0 ) {row--;}
-			for(int i=0; i<9; i++) {
-				if(i%3==0 && i!=0) {
-					row++;
-					column=originalC;
-				}
-				boxArr[idx]=board[row][column];
-				column++;
-				idx++;
-			}			
-		} catch(Exception e) {
-			System.out.println(e);
-		}
-		return boxArr;
-	}
 	
 	public static String printArr(int[] arr) {
 		String all="";
@@ -92,7 +48,7 @@ public class SudokuValidator
 		
 		
 
-		int[] c1 = extractBox(board, 4);
+		int[] c1 = Extractor.extractBox(board, 4);
 		String c1s = printArr(c1);
 		System.out.println(c1s);			
 		
