@@ -14,9 +14,9 @@ public class SolvingTools {
 		return zCount;
 	}
 	
+	
 	public int getMissing(int[] arr) {
-		SudokuValidator sv = new SudokuValidator();
-		if(!sv.noDuplicates(arr)) {
+		if(!SudokuValidator.noDuplicates(arr)) {
 			return -1;
 		}
 		int idx=-1;

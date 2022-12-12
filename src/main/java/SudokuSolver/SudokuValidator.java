@@ -3,7 +3,7 @@ package SudokuSolver;
 public class SudokuValidator 
 {
 	
-	public boolean noDuplicates(int[] arr) 
+	public static boolean noDuplicates(int[] arr) //ignores zeroes
 	{
 		int[] hash = new int[9];
 		for(int i=0; i<9; i++) {
@@ -28,6 +28,26 @@ public class SudokuValidator
 			all+=String.valueOf(a)+" ";
 		}
 		return all;
+	}
+	
+	public static boolean validate(int[][] board) {
+		for(int[] row: board) {
+			if(!noDuplicates(row)) {
+				return false;
+			}
+		}
+		for(int i=0; i<9; i++) {
+			int[] col = Extractor.extractColumn(board, i);
+			if(!noDuplicates(col)) {
+				return false;
+			}
+			int[] box = Extractor.extractBox(board, i);
+			if(!noDuplicates(box)) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	public static void main(String[] args) {
