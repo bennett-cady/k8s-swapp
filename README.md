@@ -1,4 +1,4 @@
-# k8s-swapp
+# Mixed Demo
 
 ## Overview
 This simple project demonstrates usage of OOP with Java, creating web applications with Spring Boot, virtualization with Docker, and deploying web applications on Kubernetes.
