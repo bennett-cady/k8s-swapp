@@ -7,7 +7,8 @@ public class Extractor {
 		int[] column=new int[9];
 		int idx=0;
 		try {
-			for(int[] row: board) {
+			for(int[] row: board) 
+			{
 				column[idx]=row[col]; 
 				idx++;
 			}

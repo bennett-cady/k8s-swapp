@@ -9,7 +9,8 @@ public class SudokuValidator
 		for(int i=0; i<9; i++) {
 			hash[i]=0;
 		}
-		for(int i=0; i<9; i++) {
+		for(int i=0; i<9; i++) 
+		{
 			if(arr[i]!=0) {
 				int a=arr[i];
 				if(hash[a-1]!=0) {
@@ -30,13 +31,16 @@ public class SudokuValidator
 		return all;
 	}
 	
-	public static boolean validate(int[][] board) {
-		for(int[] row: board) {
+	public static boolean validate(int[][] board) 
+	{
+		for(int[] row: board) 
+		{
 			if(!noDuplicates(row)) {
 				return false;
 			}
 		}
-		for(int i=0; i<9; i++) {
+		for(int i=0; i<9; i++) 
+		{
 			int[] col = Extractor.extractColumn(board, i);
 			if(!noDuplicates(col)) {
 				return false;
