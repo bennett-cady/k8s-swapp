@@ -6,7 +6,8 @@
 ## If namespace does not exist already
 # kubectl create namespace web-app-demo
 
-kubectl apply -f Ingress.yaml -n mixed-demo
+## Ingress is not used when application is deployed on minkube
+# kubectl apply -f Ingress.yaml -n mixed-demo
 
 kubectl apply -f Service.yaml -n mixed-demo
 

@@ -19,5 +19,5 @@ spec:
       - name: web-app
         image: benjcady14/mixed_demo:0.0.1
         ports:
-        - containerPort: 24224
+        - containerPort: 8080
         imagePullPolicy: Always
